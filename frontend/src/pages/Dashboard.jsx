@@ -45,7 +45,7 @@ export default function Dashboard() {
       params.append('page', page);
       params.append('limit', 8);
       
-      const res = await axios.get(`https://task-manager-system-izqz.onrender.com/api/tasks?${params.toString()}`);
+      const res = await axios.get(`https://task-manager-system-st1q.onrender.com/api/tasks?${params.toString()}`);
       
       if (res.data && res.data.tasks) {
         setTasks(res.data.tasks);
@@ -69,10 +69,10 @@ export default function Dashboard() {
   const handleCreateOrUpdateTask = async (taskData) => {
     try {
       if (editingTask) {
-        await axios.put(`https://task-manager-system-izqz.onrender.com/api/tasks/${editingTask._id}`, taskData);
+        await axios.put(`https://task-manager-system-st1q.onrender.com/api/tasks/${editingTask._id}`, taskData);
         addToast("Task updated successfully!", "success");
       } else {
-        await axios.post('https://task-manager-system-izqz.onrender.com/api/tasks', taskData);
+        await axios.post('https://task-manager-system-st1q.onrender.com/api/tasks', taskData);
         addToast("Task created successfully!", "success");
       }
       setIsModalOpen(false);
@@ -95,7 +95,7 @@ export default function Dashboard() {
   const confirmDeleteTask = async () => {
     if (!taskToDelete) return;
     try {
-      await axios.delete(`https://task-manager-system-izqz.onrender.com/api/tasks/${taskToDelete._id}`);
+      await axios.delete(`https://task-manager-system-st1q.onrender.com/api/tasks/${taskToDelete._id}`);
       fetchTasks();
       addToast("Task deleted.", "info");
     } catch (error) {

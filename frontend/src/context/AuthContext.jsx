@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post('https://task-manager-system-izqz.onrender.com/api/auth/login', { email, password });
+      const res = await axios.post('https://task-manager-system-st1q.onrender.com/api/auth/login', { email, password });
       if (res.data) {
         setToken(res.data.token);
         setUser(res.data);
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password) => {
     try {
-      const res = await axios.post('https://task-manager-system-izqz.onrender.com/api/auth/register', { email, password });
+      const res = await axios.post('https://task-manager-system-st1q.onrender.com/api/auth/register', { email, password });
       if (res.data) {
         setToken(res.data.token);
         setUser(res.data);
