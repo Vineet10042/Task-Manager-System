@@ -36,3 +36,15 @@ app.listen(PORT, () => {
 });
 
 // Server boot configuration ready
+
+// Keep-alive ping to prevent Render free-tier from sleeping
+const https = require('https');
+const RENDER_URL = 'https://task-manager-system-st1q.onrender.com';
+
+setInterval(() => {
+  https.get(RENDER_URL, (res) => {
+    console.log(`[Keep-Alive] Ping successful, status: ${res.statusCode}`);
+  }).on('error', (err) => {
+    console.error(`[Keep-Alive] Ping failed: ${err.message}`);
+  });
+}, 3 * 60 * 1000); // 3 minutes in milliseconds
