@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token]);
 
-  // Init user from local storage
+  // Init user from local storages
   useEffect(() => {
     if (token) {
       setUser({ token });
